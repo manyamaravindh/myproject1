@@ -21,7 +21,12 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        
+        stage('Deploy to Tomcat') {
+            steps {
+                echo 'Deploying to Tomcat....'                             
+                sh 'sudo cp /var/lib/jenkins/workspace/Validate/target/*.war /home/centos/apache-tomcat-7.0.94/webapps'  
+            }
+               }
         
     }
 }
