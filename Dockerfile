@@ -3,6 +3,6 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-FROM tomcat
+FROM tomcat:8
 COPY --from=build_server /app/* /usr/local/tomcat/webapps/
 EXPOSE 8080
